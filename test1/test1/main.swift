@@ -10,48 +10,74 @@ import Foundation
 
 print("Hello, World!")
 
+///回溯算法框架
+//
+//var result = [Any]()
+//func backtrack(_ path:Any, _ list:[Any]) -> Void {
+//
+//    if 满足结束条件 {
+//        result.add(path)
+//        return;
+//    }
+//
+//    for 选择 in 选择列表 {
+//        #做选择
+//        「将该路径从选择列表移除」
+//        『路径.add选择』
+//
+//        backtrack(路径, 选择列表啊)
+//
+//        撤销选择
+//        『路径.remove(选择)』
+//        『将该选择在此加入选择列表』
+//    }
+//}
+//
+//解决回溯问题，实际上就是一个决策树的遍历过程。
+//您只需要思考3个问题:
+//1.路径
+//2.选择列表
+//3.结束条件
+
+
 class Solution {
     
-    var temp = [Int]()
-    var ans = [[Int]]()
-    
-    func findSubsequences(_ nums: [Int]) -> [[Int]] {
-        
-        dfs(current: 0, last: Int.min, nums: nums)
-        return [[0]]
+   var result = [String]()
+
+   var letter: [String: [String]] = [
+        "2": ["a", "b", "c"],
+        "3": ["d", "e", "f"],
+        "4": ["g", "h", "i"],
+        "5": ["j", "k", "l"],
+        "6": ["m", "n", "o"],
+        "7": ["p", "q", "r", "s"],
+        "8": ["t", "u", "v"],
+        "9": ["w", "x", "y", "z"]
+    ]
+
+    func letterCombinations(_ digits: String) -> [String] {
+        guard digits.count > 0 else {return []}
+        var array = Array(digits)
+        var path:String = ""
+        backtrack(&path, 0, array)
+        return result
     }
     
-    ///current 数组最左边的下标
-    ///当前最小值
-    ///nums完整数组
-    func dfs(current:Int, last:Int, nums:[Int]) {
-        
-        ///如果当前下标已经和数组长度相等，表示数数组下标已经走完了 全部数组了!
-        if (current == nums.count) {
-            ///temp.count>=2 及可构成一个子序列
-            if (temp.count >= 2){
-                ///将子序列添加到答案之中
-                ans.append(temp)
+    func backtrack(_ path:inout String, _ index:Int, _ digits:[String.Element]) {
+        ///满足结束的条件:
+        if (index == digits.count) {
+            result.append(path)
+            return
+        }else {
+            
+            let digit = digits[index]
+            let letters = letter[String(digit)]!
+            for item in letters {
+                ///做选择
+                path.append(item)
+                backtrack(&path, index+1, digits)
+                path.remove(at: path.index(path.startIndex, offsetBy: index))
             }
-            return;
-        }
-        
-        ///因为是自增序列 所以nums[current]一定要比子序列里的最后一个值大 才可以添加到这个子序列组成新的子序列
-        if nums[current] >= last {
-            temp.append(nums[current]);
-            dfs(current: current+1, last: nums[current], nums: nums)
-            temp.removeLast()
-        }
-        
-        ///去重
-        if (nums[current] != last) {
-            dfs(current: current+1, last: last, nums: nums)
         }
     }
 }
-
-
-let s = Solution()
-
-let b =  s.findSubsequences([4,6,7,7])
-print(b)
