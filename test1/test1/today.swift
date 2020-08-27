@@ -1,14 +1,12 @@
 //
-//  main.swift
+//  today.swift
 //  test1
 //
-//  Created by developer on 2020/8/25.
+//  Created by developer on 2020/8/26.
 //  Copyright © 2020 developer. All rights reserved.
 //
 
 import Foundation
-
-print("Hello, World!")
 
 ///回溯算法框架
 //
@@ -40,7 +38,7 @@ print("Hello, World!")
 //3.结束条件
 
 
-class Solution {
+class Solution333 {
     
    var result = [String]()
 

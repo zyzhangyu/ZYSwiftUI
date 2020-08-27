@@ -9,6 +9,7 @@
 import Foundation
 class Solution12 {
     
+    
     var temp = [Int]()
     var ans = [[Int]]()
     

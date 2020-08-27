@@ -39,11 +39,7 @@ struct ContentView: View {
                     Button.init(action: {
                         self.flagTapped(number)
                     }) {
-                        Image(self.countries[number])
-                            .renderingMode(.original)
-                            .clipShape(Capsule())
-                            .overlay(Capsule().stroke(Color.black, lineWidth: 2))
-                            .shadow(color: .black, radius: 2)
+                        FlagIMage.init(name: self.countries[number])
                     }
                 }
                 

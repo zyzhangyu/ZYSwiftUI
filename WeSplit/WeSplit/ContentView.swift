@@ -66,6 +66,7 @@ struct ContentView: View {
                 
                 Section.init(header: Text("Grand total")) {
                     Text("Grand total is \(grandTotal, specifier: "%.2f")")
+                        .modifier(GrandTotalModifier(index: tipPercentage))
                 }
                 
                 Section.init(header: Text("Amount per person")){
@@ -74,6 +75,15 @@ struct ContentView: View {
             }
             .navigationBarTitle("WeSplit", displayMode: NavigationBarItem.TitleDisplayMode.inline)
         }
+    }
+}
+
+struct GrandTotalModifier:ViewModifier {
+    var index:Int
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(index==4 ? Color.red : Color.primary)
+            
     }
 }
 
