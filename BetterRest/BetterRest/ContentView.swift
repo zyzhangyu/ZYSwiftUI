@@ -8,11 +8,13 @@
 
 import SwiftUI
 
-extension ContentView {
-    
-    
+struct CoffeeCutoffCalculator:View {
+    @ObservedObject private var viewModel = Coff
+} {
+    <#fields#>
+}
 
-    
+extension ContentView {
     func calculateBedtime() -> Void {
         let model = SleepCalculator()
 
@@ -29,13 +31,13 @@ extension ContentView {
             formatter.timeStyle = .short
             alertMessage = formatter.string(from: sleepTime)
             alertTitle = "你的理想睡眠时间是:"
-
+            resultDate = sleepTime
         } catch {
             ///    // something went wrong!
             alertTitle = "错误"
             alertMessage = "抱歉,计算您的睡眠时间出现问题！"
+            showingAlert = true
         }
-        showingAlert = true
     }
 }
 
@@ -53,43 +55,50 @@ struct ContentView: View {
     @State private var alertTitle = ""
     @State private var alertMessage = ""
     @State private var showingAlert = false
+    
+    @State private var resultDate:Date = Date()
+    
+    
     var body: some View {
         
         NavigationView{
-            Form {
-                  Text("您想在什么时候醒来?")
-                      .font(.headline)
-                  
-                  DatePicker.init("请输入一个时间:", selection: $wakeUp, displayedComponents: .hourAndMinute)
-                  .labelsHidden()
-//                    .datePickerStyle(WheelDatePickerStyle.init())
-                  
-                  
-                VStack(alignment: .leading, spacing: 0){
-                    Text("渴望的睡眠小时数:")
-                        .font(.headline)
+            
+            NavigationView {
+                VStack(alignment: .center, spacing: 24) {
                     
-                    Stepper.init(value: $sleepAmount,in: 4...12, step: 0.25) {
-                        Text("\(sleepAmount, specifier: "%g") 小时")
+                    CoffeeCutoffNotice.init(cutoffTIme: resultDate)
+                    
+                    Form {
+
+                    Section.init(header: Text("您想在什么时候醒来?")
+                         .font(.headline)) {
+                             DatePicker.init("请输入一个时间:", selection: $wakeUp, displayedComponents: .hourAndMinute)
+                                     .labelsHidden()
+                     }
+                    Section.init(header:    Text("渴望的睡眠小时数:")
+                        .font(.headline)) {
+                            Stepper.init(value: $sleepAmount,in: 4...12, step: 0.25) {
+                                Text("\(sleepAmount, specifier: "%g") 小时")
+                            }
+                    }
+                    Section.init(header:     Text("今天喝了几杯咖啡")
+                        .font(.headline)) {
+                            Stepper.init(value: $coffeeAmount,in: 1...20) {
+                                if coffeeAmount == 1 {
+                                    Text("1 杯")
+                                }else {
+                                    Text("\(coffeeAmount) 杯")
+                                }
+                            }
+                    }
+                    Section.init(header: Text("建议")) {
+                        Text("您应该在3点睡觉睡")
+                    }
                     }
                 }
-                  
-                  
-                VStack(alignment: .leading, spacing: 0){
-                    Text("今天喝了几杯咖啡")
-                        .font(.headline)
-                    
-                    Stepper.init(value: $coffeeAmount,in: 1...20) {
-                        if coffeeAmount == 1 {
-                            Text("1 杯")
-                        }else {
-                            Text("\(coffeeAmount) 杯")
-                        }
-                    }
-                }
-                
-                Spacer()
-              }.navigationBarTitle("BetterRest")
+            }
+            
+            .navigationBarTitle("BetterRest")
                   .navigationBarItems(trailing: Button.init("Calculate", action: {
                       print("按钮杯点击")
                       self.calculateBedtime()
