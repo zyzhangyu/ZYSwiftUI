@@ -15,6 +15,7 @@
 		8B21A6A124F7488F0098D7B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B21A69F24F7488F0098D7B4 /* LaunchScreen.storyboard */; };
 		8B21A6A924F75C280098D7B4 /* GridStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B21A6A824F75C280098D7B4 /* GridStack.swift */; };
 		8B5B88CB24FC9DE5008E9481 /* CustomBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B88CA24FC9DE5008E9481 /* CustomBinding.swift */; };
+		8B5B893324FF213F008E9481 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5B893224FF213F008E9481 /* Animation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8B21A6A224F7488F0098D7B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B21A6A824F75C280098D7B4 /* GridStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridStack.swift; sourceTree = "<group>"; };
 		8B5B88CA24FC9DE5008E9481 /* CustomBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBinding.swift; sourceTree = "<group>"; };
+		8B5B893224FF213F008E9481 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				8B21A69824F7488D0098D7B4 /* ContentView.swift */,
 				8B21A6A824F75C280098D7B4 /* GridStack.swift */,
 				8B5B88CA24FC9DE5008E9481 /* CustomBinding.swift */,
+				8B5B893224FF213F008E9481 /* Animation.swift */,
 				8B21A69A24F7488F0098D7B4 /* Assets.xcassets */,
 				8B21A69F24F7488F0098D7B4 /* LaunchScreen.storyboard */,
 				8B21A6A224F7488F0098D7B4 /* Info.plist */,
@@ -156,6 +159,7 @@
 				8B21A69724F7488D0098D7B4 /* SceneDelegate.swift in Sources */,
 				8B21A6A924F75C280098D7B4 /* GridStack.swift in Sources */,
 				8B5B88CB24FC9DE5008E9481 /* CustomBinding.swift in Sources */,
+				8B5B893324FF213F008E9481 /* Animation.swift in Sources */,
 				8B21A69924F7488D0098D7B4 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

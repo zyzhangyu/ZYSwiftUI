@@ -22,10 +22,16 @@ struct ContentView: View {
     var body: some View{
 
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .top, endPoint: .bottom)
+            ///渐变背景色
+            LinearGradient(
+                gradient: Gradient(colors: [.blue, .pink, .black]),
+                startPoint: .top,
+                endPoint: .bottom)
             .edgesIgnoringSafeArea(.all)
             
             VStack(spacing:30) {
+                
+                ///题目
                 VStack{
                     Text("Tap the flag of")
                     Text(countries[correctAnswer])
@@ -35,11 +41,18 @@ struct ContentView: View {
                 }.foregroundColor(.white)
                 
                 
+                ///3个按钮
                 ForEach(0..<3){number in
                     Button.init(action: {
                         self.flagTapped(number)
                     }) {
-                        FlagIMage.init(name: self.countries[number])
+                        if number == self.correctAnswer {
+                            FlagIMage.init(name: self.countries[number])
+
+                        } else {
+                            FlagIMage.init(name: self.countries[number])
+                        }
+                        
                     }
                 }
                 
@@ -68,9 +81,9 @@ struct ContentView: View {
             scoreTitle = "Wrong"
             userScore -= 20
             errorMessage = "Wrong, That is the flag of \(countries[number])"
+//            showingScore = true
         }
         
-        showingScore = true
     }
     
     func askQuestion() {

@@ -19,11 +19,16 @@ struct FlagIMage: View {
 struct FlagImageModifier:ViewModifier {
     var imageName:String
     func body(content: Content) -> some View {
-        Image.init(imageName)
-        .renderingMode(.original)
-                       .clipShape(Capsule())
-                       .overlay(Capsule().stroke(Color.black, lineWidth: 2))
-                       .shadow(color: .black, radius: 2)
+        VStack {
+            Image.init(imageName)
+                   .renderingMode(.original)
+                                  .clipShape(Capsule())
+                                  .overlay(Capsule().stroke(Color.black, lineWidth: 2))
+                                  .shadow(color: .black, radius: 2)
+    
+        }
+        
+                        
     }
 }
 
