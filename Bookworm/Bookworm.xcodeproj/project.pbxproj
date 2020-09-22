@@ -19,6 +19,7 @@
 		8BFAAA5B2508AA3000C3C5F3 /* AddBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFAAA5A2508AA3000C3C5F3 /* AddBookView.swift */; };
 		8BFAAA5D2508B18200C3C5F3 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFAAA5C2508B18200C3C5F3 /* RatingView.swift */; };
 		8BFAAA5F2508B21C00C3C5F3 /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFAAA5E2508B21C00C3C5F3 /* EmojiRatingView.swift */; };
+		8BFAAA612508D86E00C3C5F3 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFAAA602508D86E00C3C5F3 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8BFAAA5A2508AA3000C3C5F3 /* AddBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBookView.swift; sourceTree = "<group>"; };
 		8BFAAA5C2508B18200C3C5F3 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		8BFAAA5E2508B21C00C3C5F3 /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
+		8BFAAA602508D86E00C3C5F3 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				8BFAAA5A2508AA3000C3C5F3 /* AddBookView.swift */,
 				8BFAAA5C2508B18200C3C5F3 /* RatingView.swift */,
 				8BFAAA5E2508B21C00C3C5F3 /* EmojiRatingView.swift */,
+				8BFAAA602508D86E00C3C5F3 /* DetailView.swift */,
 				8BFAAA5325087FB300C3C5F3 /* Day one */,
 				8BFAAA4525087F9D00C3C5F3 /* Assets.xcassets */,
 				8BFAAA4A25087F9D00C3C5F3 /* LaunchScreen.storyboard */,
@@ -175,6 +178,7 @@
 				8BFAAA5B2508AA3000C3C5F3 /* AddBookView.swift in Sources */,
 				8BFAAA5F2508B21C00C3C5F3 /* EmojiRatingView.swift in Sources */,
 				8BFAAA5525087FDC00C3C5F3 /* UseBindingCreateCustomModule.swift in Sources */,
+				8BFAAA612508D86E00C3C5F3 /* DetailView.swift in Sources */,
 				8BFAAA3D25087F9A00C3C5F3 /* AppDelegate.swift in Sources */,
 				8BFAAA5D2508B18200C3C5F3 /* RatingView.swift in Sources */,
 				8BFAAA4225087F9A00C3C5F3 /* Bookworm.xcdatamodeld in Sources */,

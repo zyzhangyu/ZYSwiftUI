@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "F12A2B07-7D56-46A3-BA3C-1101E4ADFF18"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0E8E733B-F4F2-4B5F-9124-5B74824AB323"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftUI4/CalcultorBrain.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "apply(op:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0E8E733B-F4F2-4B5F-9124-5B74824AB323 - 501706cf0eb546da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftUI4.CalculatorBrain.(apply in _5DB4F8A9DBC319671F35A784A07DF8A9)(op: SwiftUI4.CalculatorButtonItem.Op) -&gt; SwiftUI4.CalculatorBrain"
+                  moduleName = "SwiftUI4"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer/Documents/GitHub/ZYSwiftUI/SwiftUI4/SwiftUI4/CalcultorBrain.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "194">
+               </Location>
+               <Location
+                  uuid = "0E8E733B-F4F2-4B5F-9124-5B74824AB323 - 501706cf0eb546da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftUI4.CalculatorBrain.(apply in _5DB4F8A9DBC319671F35A784A07DF8A9)(op: SwiftUI4.CalculatorButtonItem.Op) -&gt; SwiftUI4.CalculatorBrain"
+                  moduleName = "SwiftUI4"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer/Documents/GitHub/ZYSwiftUI/SwiftUI4/SwiftUI4/CalcultorBrain.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "285">
+               </Location>
+               <Location
+                  uuid = "0E8E733B-F4F2-4B5F-9124-5B74824AB323 - 501706cf0eb546da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftUI4.CalculatorBrain.(apply in _5DB4F8A9DBC319671F35A784A07DF8A9)(op: SwiftUI4.CalculatorButtonItem.Op) -&gt; SwiftUI4.CalculatorBrain"
+                  moduleName = "SwiftUI4"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/developer/Documents/GitHub/ZYSwiftUI/SwiftUI4/SwiftUI4/CalcultorBrain.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "2434">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FD592CFC-1AC0-4658-9950-84B3CB070E23"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftUI4/CalcultorBrain.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "apply(num:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B4CD2317-D5C7-43A8-B787-14778B97B8EB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftUI4/CalcultorBrain.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "apply(op:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
