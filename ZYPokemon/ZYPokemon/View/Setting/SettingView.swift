@@ -21,29 +21,34 @@ import SwiftUI
      var accountSection: some View {
                  Section.init(header: Text("账户")) {
                          if settings.loginUser == nil {
-                             Picker.init(selection: settingBinding.accountBehavior, label: Text("")) {
+                            Picker.init(selection: settingBinding.checker.accountBehavior, label: Text("")) {
                                 ForEach(AppState.Settings.AccountBehavior.allCases, id: \.self){
                                      Text($0.text)
                                  }
                              }
                              .pickerStyle(SegmentedPickerStyle())
-                             TextField.init("电子邮箱", text: settingBinding.email)
-                             TextField.init("密码", text: settingBinding.password)
-                             if settings.accountBehavior == .register {
-                                 SecureField("确认密码",text: settingBinding.verifyPassword)
-                             }
+                            TextField.init("电子邮箱", text: settingBinding.checker.email)
+                                .foregroundColor(settings.isEmailValid ? .green : .red)
+
+                             TextField.init("密码", text: settingBinding.checker.password)
+                            if settings.checker.accountBehavior == .register {
+                                SecureField("确认密码",text: settingBinding.checker.verifyPassword)
+                            }
                              
+                            
                              if settings.loginRequesting {
-         //                        Text("登录中...")
                                  ZYActivityIndicatorView.init(isShowing: settingBinding.loginRequesting  , style: UIActivityIndicatorView.Style.medium)
                              }else {
-                                 Button.init(settings.accountBehavior.text) {
-                                                    print("登录/注册")
-                                                    
-                                                    self.store.dispatch(
-                                                        .login(email: self.settings.email, password: self.settings.password)
-                                                    )
-                                                }
+                                Button.init(settings.checker.accountBehavior.text) {
+                                    let checker = self.settings.checker
+                                    switch checker.accountBehavior {
+                                    case .register:
+                                        self.store.dispatch(.register(email: checker.email, password: checker.password))
+                                    case .login:
+                                        self.store.dispatch(.login(email: checker.email, password: checker.password))
+                                    }
+                                }
+                                .disabled(!settings.isValid)
                              }
                              
                          }else {
@@ -76,6 +81,7 @@ import SwiftUI
         Section {
             Button(action: {
                 print("清空缓存")
+                self.store.dispatch(.clearCache)
             }) {
                 Text("清空缓存").foregroundColor(.red)
             }
@@ -84,9 +90,9 @@ import SwiftUI
      
      var body: some View {
         Form {
-    accountSection
-        optionSection
-        actionSection
+            accountSection
+            optionSection
+            actionSection
         }.alert(item: settingBinding.loginError) { (error) -> Alert in
             return Alert.init(title: Text(error.localizedDescription))
         }

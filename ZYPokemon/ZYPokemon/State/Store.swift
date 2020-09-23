@@ -11,7 +11,24 @@ import Combine
 
 ///ObservableObject 我们可以在View里通过@ObservedObject 或者 @EnvironmentObject访问
 class Store: ObservableObject {
+    
+    init() {
+        setupObservers()
+    }
+    
     @Published var appState = AppState()
+    
+    var disposeBag = [AnyCancellable]()
+    func setupObservers(){
+        
+        appState.settings.checker.isValid.sink{isValid in
+            self.dispatch(.accountBehaviorButton(enable: isValid))
+        }.store(in: &disposeBag)
+        
+        appState.settings.checker.isEmailValid.sink { isValid in
+            self.dispatch(.emailValid(valid: isValid))
+        }.store(in: &disposeBag)
+    }
     
     func dispatch(_ action:AppAction) {
         #if DEBUG
@@ -33,10 +50,38 @@ class Store: ObservableObject {
         var appState = state
         var appCommand:AppCommand?
         switch action {
+        case .clearCache:
+            appState.pokemonList.pokemons = nil
+            //这里的属性json文件没有删除
+            appCommand = ClearCacheCommand()
+
+        
+        case .register(let email, let password):
+            appState.settings.loginRequesting = true
+            appCommand = RegisterAppCommand.init(email: email, password: password)
+        
+        case .accountBehaviorButton(let isValid):
+            appState.settings.isValid = isValid
+        
+        case .loadPokemons:
+            if appState.pokemonList.loadingPokemons {
+                break
+            }
+            appState.pokemonList.loadingPokemons = true
+            appCommand = LoadPokemonsCommand()
+        case .loadPokemonDone(let result):
+            switch result {
+            case .success(let models):
+                appState.pokemonList.pokemons = Dictionary.init(uniqueKeysWithValues: models.map{($0.id, $0)})
+            case .failure(let error):
+                print(error)
+            }
+        case .emailValid(let valid):
+            appState.settings.isEmailValid = valid
         case .logout:
             appState.settings.loginRequesting = false
             appState.settings.loginUser = nil
-            appState.settings.password = ""
+            appState.settings.checker.password = ""
             break
         case .login(let email,let password):
             ///loginRequesting 是false才能继续

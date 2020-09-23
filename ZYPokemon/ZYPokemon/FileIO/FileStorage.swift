@@ -48,10 +48,14 @@ struct SettingStorage {
         set {
             value = newValue
             UserDefaults.standard.set(value, forKey: name)
+            UserDefaults.standard.synchronize()
         }
         
         get {
-            UserDefaults.standard.bool(forKey: name)  
+            UserDefaults.standard.bool(forKey: name)
         }
     }
 }
+
+
+ 

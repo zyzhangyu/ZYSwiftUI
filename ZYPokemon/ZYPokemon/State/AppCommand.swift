@@ -8,9 +8,29 @@
 
 import SwiftUI
 import Combine
-
+import Kingfisher
 protocol AppCommand {
     func execute(in store:Store)
+}
+
+struct RegisterAppCommand:AppCommand {
+    let email:String
+    let password:String
+    
+    func execute(in store: Store) {
+        let token = SubscriptionToken()
+        RegisterRequest.init(email: email, password: password)
+            .publisher
+            .sink { (complete) in
+                if case .failure(let error) = complete {
+                    store.dispatch(.accountBehaviorDone(result: .failure(error)))
+                }
+                token.unseal()
+            } receiveValue: { (user) in
+                store.dispatch(.accountBehaviorDone(result: .success(user)))
+            }
+            .seal(in: token)
+    }
 }
 
 struct LoginAppCommand:AppCommand {
@@ -55,5 +75,32 @@ struct WriteUserAppCommand:AppCommand {
     let user:User
     func execute(in store: Store) {
         try? FileHelper.writeJSON(user, to: .documentDirectory, fileName: "user.json")
+    }
+}
+
+
+struct LoadPokemonsCommand:AppCommand {
+    func execute(in store: Store) {
+        let token = SubscriptionToken()
+        LoadPokemonRequest.all
+            .sink { (complete) in
+                if case .failure(let error) = complete {
+                    store.dispatch(.loadPokemonDone(result: .failure(error))
+                    )
+                    token.unseal()
+
+                }
+            } receiveValue: { (value) in
+                store.dispatch(.loadPokemonDone(result: .success(value)))
+            }
+            .seal(in: token)
+    }
+}
+
+
+struct ClearCacheCommand:AppCommand {
+    func execute(in store: Store) {
+        KingfisherManager.shared.cache.clearMemoryCache()
+        KingfisherManager.shared.cache.clearDiskCache()
     }
 }
